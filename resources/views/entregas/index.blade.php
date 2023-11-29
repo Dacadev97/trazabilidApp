@@ -8,9 +8,7 @@
 <body>
 <div class="container mt-5">
     <div class="card p-4">
-        <h1 class="mb-4" style="background-color: #f8f9fa; padding: 10px;">Lista de Entregas</h1>
-
-        <a href="{{ route('entregas.create') }}" class="btn btn-success mb-3">Registrar Entrega</a>
+        <h1 class="mb-4">Lista de Entregas</h1>
 
         <div class="row">
             @foreach($entregas as $entrega)
@@ -24,15 +22,22 @@
                                 <strong>Estado de Entrega:</strong> {{ $entrega->estado_entrega }} <br>
                             </p>
                             <a href="{{ route('entregas.show', $entrega->id_entrega) }}" class="btn btn-primary">Ver Detalles</a>
-                            @if($entrega->guiaTransporte)
-                                <a href="{{ route('guias.show', $entrega->guiaTransporte->id) }}" class="btn btn-secondary mt-2">Ver Guía</a>
+                            @if($entrega->id_guia_transporte)
+                                <a href="{{ route('guias.show', $entrega->id_guia_transporte) }}" class="btn btn-secondary">Ver Guía</a>
                             @else
-                                <p class="mt-2">Sin guía de transporte asociada</p>
+                                <p>No hay guía de transporte asociada a esta entrega.</p>
                             @endif
                         </div>
                     </div>
                 </div>
             @endforeach
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ route('entregas.create') }}" class="btn btn-success ">Registrar Entrega</a>
+                <a href="{{ route('guias.index') }}" class="btn btn-info">Listado de Guías</a> 
+            </div>
         </div>
     </div>
 </div>

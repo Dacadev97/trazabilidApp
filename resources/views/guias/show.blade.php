@@ -13,17 +13,16 @@
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    @foreach($guia->entregas as $entrega)
+                   
                         <li class="list-group-item">
-                            <strong>ID Guía:</strong> {{  $entrega->id_guia_transporte }}
+                            <strong>ID Guía:</strong> {{ $guia->id_guia_transporte }}
                             <br>
-                            <strong>ID Entrega:</strong> {{ $entrega->id_entrega }}
                             <br>
-                            <strong>Fecha de Entrega:</strong> {{ $entrega->fecha_entrega }}
+                            <strong>Fecha de Creación:</strong> {{ $guia->created_at }}
                             <br>
-                            <strong>Estado:</strong> {{ $entrega->estado_entrega }}
+                            <strong>Estado:</strong> {{ $guia->estado_entrega }}
                         </li>
-                    @endforeach
+
                 </ul>
             </div>
         </div>

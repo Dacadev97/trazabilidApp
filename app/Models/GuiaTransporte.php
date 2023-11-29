@@ -15,6 +15,7 @@ class GuiaTransporte extends Model
 
 
     protected $fillable = [
+        'id_guia_transporte',
         'estado_entrega',
         'destino',
         'fecha_emision',

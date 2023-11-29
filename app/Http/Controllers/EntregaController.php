@@ -11,7 +11,8 @@ class EntregaController extends Controller
     public function index()
     {
         $entregas = Entrega::with('guiaTransporte')->get();
-        return view('entregas.index', ['entregas' => $entregas]);
+        $guias = GuiaTransporte::all();
+        return view('entregas.index', ['entregas' => $entregas, 'guias' => $guias]);
     }
 
     public function create()
@@ -21,7 +22,7 @@ class EntregaController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'id_pedido' => 'required',
             'id_cliente' => 'required|integer',
             'fecha_despacho' => 'required|date',
@@ -35,25 +36,25 @@ class EntregaController extends Controller
 
         $guiaTransporte = new GuiaTransporte;
         $guiaTransporte->id_guia_transporte = $request->id_guia_transporte;
-
+        $guiaTransporte->estado_entrega = $request->estado_entrega;
         $guiaTransporte->save();
+    
+        $entrega = new Entrega;
+        $entrega->id_pedido = $request->id_pedido;
+        $entrega->id_cliente = $request->id_cliente;
+        $entrega->fecha_despacho = $request->fecha_despacho;
+        $entrega->fecha_entrega = $request->fecha_entrega;
+        $entrega->id_guia_transporte = $request->id_guia_transporte;
+        $entrega->estado_entrega = $request->estado_entrega;
+        $entrega->observaciones = $request->observaciones;
+        $entrega->save();
 
         if ($request->hasFile('foto_guia')) {
             $path = $request->file('foto_guia')->store('public/fotos_guias');
             $request->merge(['foto_guia' => $path]);
         }
-        $entrega = new Entrega;
-        $entrega->id_pedido = $validatedData['id_pedido'];
-        $entrega->id_cliente = $validatedData['id_cliente'];
-        $entrega->fecha_despacho = $validatedData['fecha_despacho'];
-        $entrega->fecha_entrega = $validatedData['fecha_entrega'];
-        $entrega->id_guia_transporte = $validatedData['id_guia_transporte'];
-        $entrega->estado_entrega = $validatedData['estado_entrega'];
-        $entrega->observaciones = $validatedData['observaciones'];
 
-        $entrega->save();
-
-        return redirect()->route('entregas.index')->with('success', 'Entrega creada exitosamente.');
+        return redirect()->route('entregas.index');
     }
 
     public function show($id)

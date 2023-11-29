@@ -16,7 +16,7 @@
                   <p><strong>Fecha de Despacho:</strong> {{ $entrega->fecha_despacho }}</p>
                   <p><strong>Fecha de Entrega:</strong> {{ $entrega->fecha_entrega }}</p>
                   <p><strong>Estado de Entrega:</strong> {{ $entrega->estado_entrega }}</p>
-                  <!-- Agrega más detalles según tus necesidades -->
+
 
                   <strong>Foto de Guía:</strong>
                   @if($entrega->foto_guia)

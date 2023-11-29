@@ -11,7 +11,7 @@ class CreateGuiaTransporteTable extends Migration
         Schema::create('guia_transporte', function (Blueprint $table) {
             $table->id(); 
             $table->string('id_guia_transporte');
-            $table->string('estado_entrega')->nullable()->change(); 
+            $table->string('estado_entrega'); 
             $table->string('destino')->nullable()->change();
             $table->date('fecha_emision')->nullable()->change(); 
             $table->string('transportista')->nullable()->change(); 

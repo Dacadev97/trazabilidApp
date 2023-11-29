@@ -10,7 +10,7 @@ class GuiaTransporteController extends Controller
     public function index()
     {
         $guias = GuiaTransporte::all();
-        return view('guias.index', compact('guias'));
+        return view('guias.index', ['guias' => $guias]);
     }
 
     public function create()
@@ -32,11 +32,14 @@ class GuiaTransporteController extends Controller
         return redirect()->route('guias.index')->with('success', 'Guía de transporte creada exitosamente.');
     }
 
-    public function show($id)
+    public function show($id_guia_transporte)
     {
-        $guia = GuiaTransporte::findOrFail($id);
-        return view('guias.show', compact('guia'));
+        $guia = GuiaTransporte::with('entregas')->where('id_guia_transporte', $id_guia_transporte)->first();
+    
+        if (!$guia) {
+            return abort(404);
+        }
+    
+        return view('guias.show', ['guia' => $guia]);
     }
-
-    // Otros métodos según tus necesidades
 }
