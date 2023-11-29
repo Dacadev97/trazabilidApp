@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Entrega
+ * 
+ * Modelo que representa una entrega en el sistema.
+ * 
+ * @package App\Models
+ */
 class Entrega extends Model
 {
     use HasFactory;
@@ -23,6 +30,11 @@ class Entrega extends Model
         'foto_guia',
     ];
 
+    /**
+     * Obtiene la guía de transporte asociada a la entrega.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function guiaTransporte()
     {
         return $this->belongsTo(GuiaTransporte::class, 'id_guia_transporte');

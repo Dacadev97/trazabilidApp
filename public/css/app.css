@@ -1,0 +1,81 @@
+.bg-pastel-yellow {
+      background-color: #dfdfc1;
+}
+
+.bg-pastel-green {
+      background-color: #cff7cf;
+}
+
+.bg-pastel-red {
+      background-color: #f0bdba;
+}
+
+body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+}
+
+.container {
+      margin-top: 50px;
+}
+
+.card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+}
+
+.card-body {
+      padding: 20px;
+      text-align: center;
+}
+
+img {
+      max-width: 100%;
+      height: auto;
+}
+
+.btn-back {
+      background-color: #007bff;
+      color: #fff;
+}
+
+.form-group {
+      margin-bottom: 20px;
+}
+
+h1 {
+      color: #4a4a4a;
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      text-align: center;
+      border-bottom: 2px solid #e8e8e8;
+      padding-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+}
+
+.btn {
+      border-radius: 50px;
+      padding: 10px 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+  }
+
+.row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+}
+
+.btn:hover {
+      transform: scale(1.05);
+}

@@ -22,3 +22,7 @@ Route::get('/guias', [GuiaTransporteController::class, 'index'])->name('guias.in
 Route::get('/guias/{id_guia_transporte}', [GuiaTransporteController::class, 'show'])->name('guias.show');
 
 Route::delete('entregas/{entrega}', [EntregaController::class, 'destroy'])->name('entregas.destroy');
+
+Route::get('/entregas/{id}/edit', [EntregaController::class, 'edit'])->name('entregas.edit');
+
+Route::put('/entregas/{id}', [EntregaController::class, 'update'])->name('entregas.update');

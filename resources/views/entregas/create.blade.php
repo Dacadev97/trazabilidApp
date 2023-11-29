@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Crear Nueva Entrega</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <div class="container mt-5">
@@ -61,9 +63,14 @@
                 <input type="file" name="foto_guia" class="form-control-file">
             </div>
 
-            <button type="submit" class="btn btn-primary">Crear Entrega</button>
+            <a href="{{ route('entregas.index') }}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Volver a la Lista de Entregas">
+                <i class="fas fa-arrow-left"></i>
+          </a>
 
-            <a href="{{ route('entregas.index') }}" class="btn btn-primary">Regresar a lista de entregas</a>
+            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Guardar">
+                <i class="fas fa-save"></i>
+            </button>
+
 
         </form>
     </div>

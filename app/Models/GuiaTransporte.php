@@ -5,6 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class GuiaTransporte
+ * 
+ * @package App\Models
+ * 
+ * @property int $id_guia_transporte
+ * @property string $estado_entrega
+ * @property string $destino
+ * @property string $fecha_emision
+ * @property string $transportista
+ * 
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Entrega[] $entregas
+ * @property-read int|null $entregas_count
+ */
 class GuiaTransporte extends Model
 {
     use HasFactory;
