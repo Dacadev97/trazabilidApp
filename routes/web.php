@@ -20,3 +20,5 @@ Route::get('/entregas/{id}', [EntregaController::class, 'show'])->name('entregas
 Route::get('/guias', [GuiaTransporteController::class, 'index'])->name('guias.index');
 
 Route::get('/guias/{id_guia_transporte}', [GuiaTransporteController::class, 'show'])->name('guias.show');
+
+Route::delete('entregas/{entrega}', [EntregaController::class, 'destroy'])->name('entregas.destroy');

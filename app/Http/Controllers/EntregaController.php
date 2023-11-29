@@ -38,7 +38,7 @@ class EntregaController extends Controller
         $guiaTransporte->id_guia_transporte = $request->id_guia_transporte;
         $guiaTransporte->estado_entrega = $request->estado_entrega;
         $guiaTransporte->save();
-    
+
         $entrega = new Entrega;
         $entrega->id_pedido = $request->id_pedido;
         $entrega->id_cliente = $request->id_cliente;
@@ -61,5 +61,16 @@ class EntregaController extends Controller
     {
         $entrega = Entrega::find($id);
         return view('entregas.show', compact('entrega'));
+    }
+
+    public function destroy($id)
+    {
+        $entrega = Entrega::findOrFail($id);
+        $entrega->delete();
+        $guias = GuiaTransporte::findOrFail($id);
+        $guias->delete();
+        
+        return redirect()->route('entregas.index')
+            ->with('success', 'Entrega eliminada con éxito');
     }
 }

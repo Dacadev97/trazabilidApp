@@ -18,9 +18,14 @@
                             <h5 class="card-title">ID Entrega: {{ $entrega->id_entrega }}</h5>
                             <p class="card-text">
                                 <strong>ID Pedido:</strong> {{ $entrega->id_pedido }} <br>
-                                <strong>Fecha de Entrega:</strong> {{ $entrega->fecha_entrega }} <br>
+                                <strong>Fecha de Creación:</strong> {{ $entrega->fecha_entrega }} <br>
                                 <strong>Estado de Entrega:</strong> {{ $entrega->estado_entrega }} <br>
                             </p>
+                            <form action="{{ route('entregas.destroy', $entrega->id_entrega) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
                             <a href="{{ route('entregas.show', $entrega->id_entrega) }}" class="btn btn-primary">Ver Detalles</a>
                             @if($entrega->id_guia_transporte)
                                 <a href="{{ route('guias.show', $entrega->id_guia_transporte) }}" class="btn btn-secondary">Ver Guía</a>
