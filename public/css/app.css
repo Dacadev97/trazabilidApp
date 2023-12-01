@@ -79,3 +79,24 @@ h1, h2, h3, h4, h5, h6 {
 .btn:hover {
       transform: scale(1.05);
 }
+
+/* CSS para dispositivos con pantalla pequeña */
+@media (max-width: 600px) {
+      body {
+            background-color: lightblue;
+      }
+}
+
+/* CSS para dispositivos con pantalla mediana */
+@media (min-width: 601px) and (max-width: 1224px) {
+      body {
+            background-color: lightgreen;
+      }
+}
+
+/* CSS para dispositivos con pantalla grande */
+@media (min-width: 1225px) {
+      body {
+            background-color: lightyellow;
+      }
+}
