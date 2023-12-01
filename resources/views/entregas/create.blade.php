@@ -59,7 +59,7 @@
                 <textarea name="observaciones" class="form-control"></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display: none">
                 <label for="foto_guia">Foto Guía:</label>
                 <input type="file" name="foto_guia" class="form-control-file">
             </div>
